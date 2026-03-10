@@ -30,11 +30,3 @@ function CalcularResistencia(){
     }
     resultado.innerHTML = "Resistência: " + numResistencia + "Ω || Tolerância: +/- " + tolerancia + "%";
 }
-function QuatroOuCindo(){
-    let valorInserido = document.getElementById("qtdFaixas").value, quintaFaixa = document.getElementById("Faixa5"), faixas = document.getElementById("containerPai"), salvarQuintaFaixa;
-    if(valorInserido <= 4){
-        quintaFaixa.style.display = 'none'
-    } else {
-        quintaFaixa.style.display = 'flex'
-    }
-}
