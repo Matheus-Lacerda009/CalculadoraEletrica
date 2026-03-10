@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(46, 46, 46);
+    margin: 0px;
+}
+#containerPai{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+#areaDeEntradaDeDados{
+    width: 400px;
+    height: 240px;
+    background-color: gray;
+    align-content: center;
+    justify-content: center;
+}
+#titulo{
+    background-color: white;
+    width: 320px;
+    margin: auto;
+    padding: 3px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.caixaDeEntrada{
+    display: flex;
+    margin: auto;
+}
+#calcular{
+    margin-bottom: 3px;
+}
+#resultado{
+    padding: 3px;
+    margin-left: 10px;
+    background-color: white;
+    width: 175px;
+    text-align: center;
+    margin: auto;
+}
