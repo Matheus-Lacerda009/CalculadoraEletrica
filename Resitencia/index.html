@@ -8,82 +8,99 @@
 </head>
 <body>
     <div id="containerPai">
+    <div id="resistor">
+        <div id="terminal"></div>
+        <div id="meioResistor">
+            <div id="faixasCores">
+                <div id="faixa1cor"></div>
+                <div id="faixa2cor"></div>
+                <div id="faixa3cor"></div>
+                <div id="faixa4cor"></div>
+            </div>
+        </div>
+        <div id="esquerdaResistor"></div>
+        <div id="direitaResistor">
+            <div id="faixaToleranciaCor"></div>
+        </div>
+    </div>
         <div id="areaDeEntradaDeDados">
             <h3 id="titulo">Calculadora de resistência para resistores</h3>
             <select id="qtdFaixas" oninput="QuatroOuCinco()" class="caixaDeEntrada">
                 <option value= 4>Quatro</option>
                 <option value= 5>Cinco</option>
             </select>
-            <select id="Faixa1" class="caixaDeEntrada">
-                <option value= 0>Preto</option>
-                <option value= 1>Marrom</option>
-                <option value= 2>Vermelho</option>
-                <option value= 3>Laranja</option>
-                <option value= 4>Amarelo</option>
-                <option value= 5>Verde</option>
-                <option value= 6>Azul</option>
-                <option value= 7>Violeta</option>
-                <option value= 8>Cinza</option>
-                <option value= 9>Branco</option>
-                <option value= 10>Ouro</option>
-                <option value= 11>Prata</option>
-            </select>
-            <select id="Faixa2" class="caixaDeEntrada">
-                <option value= 0>Preto</option>
-                <option value= 1>Marrom</option>
-                <option value= 2>Vermelho</option>
-                <option value= 3>Laranja</option>
-                <option value= 4>Amarelo</option>
-                <option value= 5>Verde</option>
-                <option value= 6>Azul</option>
-                <option value= 7>Violeta</option>
-                <option value= 8>Cinza</option>
-                <option value= 9>Branco</option>
-                <option value= 10>Ouro</option>
-                <option value= 11>Prata</option>
-            </select>
-            <select id="Faixa3" class="caixaDeEntrada">
-                <option value= 0>Preto</option>
-                <option value= 1>Marrom</option>
-                <option value= 2>Vermelho</option>
-                <option value= 3>Laranja</option>
-                <option value= 4>Amarelo</option>
-                <option value= 5>Verde</option>
-                <option value= 6>Azul</option>
-                <option value= 7>Violeta</option>
-                <option value= 8>Cinza</option>
-                <option value= 9>Branco</option>
-                <option value= 10>Ouro</option>
-                <option value= 11>Prata</option>
-            </select>
-            <select id="Faixa4" class="caixaDeEntrada">
-                <option value= 0>Preto</option>
-                <option value= 1>Marrom</option>
-                <option value= 2>Vermelho</option>
-                <option value= 3>Laranja</option>
-                <option value= 4>Amarelo</option>
-                <option value= 5>Verde</option>
-                <option value= 6>Azul</option>
-                <option value= 7>Violeta</option>
-                <option value= 8>Cinza</option>
-                <option value= 9>Branco</option>
-                <option value= 10>Ouro</option>
-                <option value= 11>Prata</option>
-            </select>
-            <select id="Faixa5" disabled = true class="caixaDeEntrada">
-                <option value= 0>Preto</option>
-                <option value= 1>Marrom</option>
-                <option value= 2>Vermelho</option>
-                <option value= 3>Laranja</option>
-                <option value= 4>Amarelo</option>
-                <option value= 5>Verde</option>
-                <option value= 6>Azul</option>
-                <option value= 7>Violeta</option>
-                <option value= 8>Cinza</option>
-                <option value= 9>Branco</option>
-                <option value= 10>Ouro</option>
-                <option value= 11>Prata</option>
-            </select>
+            <div id="coresFaixa">
+                <select id="Faixa1" class="caixaDeEntrada" oninput="trocaCor()">
+                    <option value= 0>Preto</option>
+                    <option value= 1>Marrom</option>
+                    <option value= 2>Vermelho</option>
+                    <option value= 3>Laranja</option>
+                    <option value= 4>Amarelo</option>
+                    <option value= 5>Verde</option>
+                    <option value= 6>Azul</option>
+                    <option value= 7>Violeta</option>
+                    <option value= 8>Cinza</option>
+                    <option value= 9>Branco</option>
+                    <option value= 10>Ouro</option>
+                    <option value= 11>Prata</option>
+                </select>
+                <select id="Faixa2" class="caixaDeEntrada" oninput="trocaCor()">
+                    <option value= 0>Preto</option>
+                    <option value= 1>Marrom</option>
+                    <option value= 2>Vermelho</option>
+                    <option value= 3>Laranja</option>
+                    <option value= 4>Amarelo</option>
+                    <option value= 5>Verde</option>
+                    <option value= 6>Azul</option>
+                    <option value= 7>Violeta</option>
+                    <option value= 8>Cinza</option>
+                    <option value= 9>Branco</option>
+                    <option value= 10>Ouro</option>
+                    <option value= 11>Prata</option>
+                </select>
+                <select id="Faixa3" class="caixaDeEntrada" oninput="trocaCor()">
+                    <option value= 0>Preto</option>
+                    <option value= 1>Marrom</option>
+                    <option value= 2>Vermelho</option>
+                    <option value= 3>Laranja</option>
+                    <option value= 4>Amarelo</option>
+                    <option value= 5>Verde</option>
+                    <option value= 6>Azul</option>
+                    <option value= 7>Violeta</option>
+                    <option value= 8>Cinza</option>
+                    <option value= 9>Branco</option>
+                    <option value= 10>Ouro</option>
+                    <option value= 11>Prata</option>
+                </select>
+                <select id="Faixa4" class="caixaDeEntrada" oninput="trocaCor()">
+                    <option value= 0>Preto</option>
+                    <option value= 1>Marrom</option>
+                    <option value= 2>Vermelho</option>
+                    <option value= 3>Laranja</option>
+                    <option value= 4>Amarelo</option>
+                    <option value= 5>Verde</option>
+                    <option value= 6>Azul</option>
+                    <option value= 7>Violeta</option>
+                    <option value= 8>Cinza</option>
+                    <option value= 9>Branco</option>
+                    <option value= 10>Ouro</option>
+                    <option value= 11>Prata</option>
+                </select>
+                <select id="Faixa5" disabled = true class="caixaDeEntrada" oninput="trocaCor()">
+                    <option value= 0>Preto</option>
+                    <option value= 1>Marrom</option>
+                    <option value= 2>Vermelho</option>
+                    <option value= 3>Laranja</option>
+                    <option value= 4>Amarelo</option>
+                    <option value= 5>Verde</option>
+                    <option value= 6>Azul</option>
+                    <option value= 7>Violeta</option>
+                    <option value= 8>Cinza</option>
+                    <option value= 9>Branco</option>
+                    <option value= 10>Ouro</option>
+                    <option value= 11>Prata</option>
+                </select>
+            </div>
             <button onclick="CalcularResistencia()" class="caixaDeEntrada" id="calcular">Calcular</button>
             <p id="resultado">Resultado: Sem resultado</p>
         </div>
