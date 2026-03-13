@@ -65,22 +65,40 @@ function trocaCor(){
         parseInt(document.getElementById("Faixa4").value),
         parseInt(document.getElementById("Faixa5").value)],
     corFaixasFront = ["black", "rgb(80, 40, 0)", "red", "rgb(240, 120, 0)", "yellow", "green", "blue", "rgb(150, 0, 200)", "gray", "white", "rgb(150, 110, 0)", "silver"],
-    faixa1 = document.getElementById("faixa1cor"),
-    faixa2 = document.getElementById("faixa2cor"),
-    faixa3 = document.getElementById("faixa3cor"),
-    faixa4 = document.getElementById("faixa4cor"),
-    faixa5 = document.getElementById("faixaToleranciaCor"),
-    valorInserido = document.getElementById("qtdFaixas").value;
-    if(valorInserido <= 4){
-        faixa1.style.backgroundColor = corFaixasFront[faixas[0]];
-        faixa2.style.backgroundColor = corFaixasFront[faixas[1]];
-        faixa3.style.backgroundColor = corFaixasFront[faixas[2]];
-        faixa5.style.backgroundColor = corFaixasFront[faixas[3]];
+    faixasCor = [document.getElementById("faixa1cor"),
+        document.getElementById("faixa2cor"),
+        document.getElementById("faixa3cor"),
+        document.getElementById("faixa4cor"),
+        document.getElementById("faixaToleranciaCor")],
+    valorInserido = document.getElementById("qtdFaixas").value,
+    faixasInput = [document.getElementById("Faixa1"),
+        document.getElementById("Faixa2"),
+        document.getElementById("Faixa3"),
+        document.getElementById("Faixa4"),
+        document.getElementById("Faixa5")];
+    if(valorInserido == 4){
+        for(let i = 0; i < 4; i++){
+            if(i != 3){
+                faixasCor[i].style.backgroundColor = corFaixasFront[faixas[i]];
+            } else {
+                faixasCor[i + 1].style.backgroundColor = corFaixasFront[faixas[i]];
+            }
+            faixasInput[i].style.backgroundColor = corFaixasFront[faixas[i]];
+            if(corFaixasFront[faixas[i]] != "white" && corFaixasFront[faixas[i]] != "yellow" && corFaixasFront[faixas[i]] != "silver"){
+                faixasInput[i].style.color = "white";
+            } else {
+                faixasInput[i].style.color = "black";
+            }
+        }
     } else {
-        faixa1.style.backgroundColor = corFaixasFront[faixas[0]];
-        faixa2.style.backgroundColor = corFaixasFront[faixas[1]];
-        faixa3.style.backgroundColor = corFaixasFront[faixas[2]];
-        faixa4.style.backgroundColor = corFaixasFront[faixas[3]];
-        faixa5.style.backgroundColor = corFaixasFront[faixas[4]];
+        for(let i = 0; i < 5; i++){
+            faixasCor[i].style.backgroundColor = corFaixasFront[faixas[i]];
+            faixasInput[i].style.backgroundColor = corFaixasFront[faixas[i]];
+            if(corFaixasFront[faixas[i]] != "white" && corFaixasFront[faixas[i]] != "yellow" && corFaixasFront[faixas[i]] != "silver"){
+                faixasInput[i].style.color = "white";
+            } else {
+                faixasInput[i].style.color = "black";
+            }
+        }
     }
 }
