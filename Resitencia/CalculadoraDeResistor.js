@@ -7,7 +7,7 @@ function CalcularResistencia(){
         parseInt(document.getElementById("Faixa3").value),
         parseInt(document.getElementById("Faixa4").value),
         parseInt(document.getElementById("Faixa5").value)],
-    cores = [1, 10, 10 ** 2, 10 ** 3, 10 ** 4, 10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8, 10 ** 9],
+    cores = [1, 10, 10 ** 2, 10 ** 3, 10 ** 4, 10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8, 10 ** 9, 10 ** -1, 0.01],
     tolerancias = {
         1 : 1,
         2 : 2,
@@ -22,7 +22,7 @@ function CalcularResistencia(){
         return 0;
     }
     if(qtdFaixas == 4){
-        numResistencia = Number("" + faixas[0] + "" + faixas[1]) * cores[faixas[2]];
+        numResistencia = parseInt("" + faixas[0] + "" + faixas[1]) * cores[faixas[2]];
         if(Number.isInteger(tolerancias[faixas[3]])){
             tolerancia = tolerancias[faixas[3]];
         } else {
@@ -36,10 +36,10 @@ function CalcularResistencia(){
             tolerancia = "X"
         }
     }
-    if(String(numResistencia).length >= 7){
+    if(String(numResistencia) >= 1000000){
         numResistencia /= 1000000
         unidadeDeMedida = "M";
-    } else if(String(numResistencia).length >= 4){
+    } else if(String(numResistencia) >= 1000){
         numResistencia /= 1000
         unidadeDeMedida = "k";
     }
