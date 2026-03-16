@@ -95,7 +95,6 @@ body{
     height: 30px;
     position: absolute;
     border-radius: 10px;
-    border: 1px solid rgb(0, 0, 0);
 }
 #areaDeEntradaDeDados{
     width: 520px;
@@ -123,6 +122,11 @@ body{
     border-radius: 5px;
     background-color: black;
     color: white;
+    transition: transform 0.2s ease-out;
+    border-color: black;
+}
+.caixaDeEntrada:hover{
+    transform: scale(1.1);
 }
 #calcular{
     margin-bottom: 3px;
@@ -135,6 +139,7 @@ body{
     text-align: center;
     border: 3px outset rgb(186, 186, 186);
     border-radius: 7px;
+    transition: transform 0.2s ease-out;
 }
 #coresFaixa{
     padding-top: 10px;

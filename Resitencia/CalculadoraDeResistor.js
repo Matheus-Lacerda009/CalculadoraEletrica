@@ -15,25 +15,26 @@ function CalcularResistencia(){
         10 : 5,
         11 : 10
     },
+    numerosProibidos = [10, 11],
     resultado = document.getElementById("resultado"),
     unidadeDeMedida = "";
-    if(qtdFaixas != 4 && qtdFaixas != 5){
-        console.log("Quantidade de faixas inválida!");
-        return 0;
-    }
     if(qtdFaixas == 4){
-        numResistencia = parseInt("" + faixas[0] + "" + faixas[1]) * cores[faixas[2]];
-        if(Number.isInteger(tolerancias[faixas[3]])){
-            tolerancia = tolerancias[faixas[3]];
-        } else {
-            tolerancia = "X"
+        if(!numerosProibidos.includes(faixas[0]) && !numerosProibidos.includes(faixas[1])){
+            numResistencia = parseInt("" + faixas[0] + "" + faixas[1]) * cores[faixas[2]];
+            if(Number.isInteger(tolerancias[faixas[3]])){
+                tolerancia = tolerancias[faixas[3]];
+            } else {
+                tolerancia = "X"
+            }
         }
     } else {
-        numResistencia = parseInt("" + faixas[0] + "" + faixas[1] + "" + faixas[2]) * cores[faixas[3]];
-        if(Number.isInteger(tolerancias[faixas[4]])){
-            tolerancia = tolerancias[faixas[4]];
-        } else {
-            tolerancia = "X"
+        if(!numerosProibidos.includes(faixas[0]) && !numerosProibidos.includes(faixas[1]) && !numerosProibidos.includes(faixas(2))){
+            numResistencia = parseInt("" + faixas[0] + "" + faixas[1] + "" + faixas[2]) * cores[faixas[3]];
+            if(Number.isInteger(tolerancias[faixas[4]])){
+                tolerancia = tolerancias[faixas[4]];
+            } else {
+                tolerancia = "X"
+            }
         }
     }
     if(String(numResistencia) >= 1000000){
@@ -43,7 +44,14 @@ function CalcularResistencia(){
         numResistencia /= 1000
         unidadeDeMedida = "k";
     }
+    if(!Number.isInteger(numResistencia)){
+        numResistencia = "X";
+    }
     resultado.innerHTML = "Resistência: " + numResistencia + unidadeDeMedida + "Ω || Tolerância: +/- " + tolerancia + "%";
+    resultado.style.transform = "scale(1.1)";
+    setTimeout(() => {
+        resultado.style.transform = "scale(1)";
+    }, 200);
 }
 function QuatroOuCinco(){
     let valorInserido = document.getElementById("qtdFaixas").value, quintaFaixa = document.getElementById("Faixa5"), quartaFaixaIlustracao = document.getElementById("faixa4cor"), faixasDiv = document.getElementById("faixasCores");
