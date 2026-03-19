@@ -1,12 +1,28 @@
-function CalcularResistencia(){
-    let tolerancia, numResistencia,
-    qtdFaixas = document.getElementById("qtdFaixas").value,
+corFaixasFront = ["black", "rgb(80, 40, 0)", "red", "rgb(240, 120, 0)", "yellow", "green", "blue", "rgb(150, 0, 200)", "gray", "white", "rgb(150, 110, 0)", "silver"];
+function Atualizar(){
     faixas = [
         parseInt(document.getElementById("Faixa1").value),
         parseInt(document.getElementById("Faixa2").value),
         parseInt(document.getElementById("Faixa3").value),
         parseInt(document.getElementById("Faixa4").value),
         parseInt(document.getElementById("Faixa5").value)],
+    faixasCor = [document.getElementById("faixa1cor"),
+        document.getElementById("faixa2cor"),
+        document.getElementById("faixa3cor"),
+        document.getElementById("faixa4cor"),
+        document.getElementById("faixaToleranciaCor")],
+    valorInserido = document.getElementById("qtdFaixas").value,
+    faixasInput = [document.getElementById("Faixa1"),
+        document.getElementById("Faixa2"),
+        document.getElementById("Faixa3"),
+        document.getElementById("Faixa4"),
+        document.getElementById("Faixa5")],
+        classeInput = document.getElementsByClassName("caixaDeEntrada");
+}
+function CalcularResistencia(){
+    Atualizar();
+    let tolerancia, numResistencia,
+    qtdFaixas = document.getElementById("qtdFaixas").value,
     cores = [1, 10, 10 ** 2, 10 ** 3, 10 ** 4, 10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8, 10 ** 9, 10 ** -1, 0.01],
     tolerancias = {
         1 : 1,
@@ -28,9 +44,9 @@ function CalcularResistencia(){
             }
         }
     } else {
-        if(!numerosProibidos.includes(faixas[0]) && !numerosProibidos.includes(faixas[1]) && !numerosProibidos.includes(faixas(2))){
+        if(!numerosProibidos.includes(faixas[0]) && !numerosProibidos.includes(faixas[1]) && !numerosProibidos.includes(faixas[2])){
             numResistencia = parseInt("" + faixas[0] + "" + faixas[1] + "" + faixas[2]) * cores[faixas[3]];
-            if(Number.isInteger(tolerancias[faixas[4]])){
+            if(tolerancias[faixas[4]] != undefined){
                 tolerancia = tolerancias[faixas[4]];
             } else {
                 tolerancia = "X"
@@ -44,7 +60,8 @@ function CalcularResistencia(){
         numResistencia /= 1000
         unidadeDeMedida = "k";
     }
-    if(!Number.isInteger(numResistencia)){
+    if(numResistencia === undefined){
+        console.log(numResistencia);
         numResistencia = "X";
     }
     resultado.innerHTML = "Resistência: " + numResistencia + unidadeDeMedida + "Ω || Tolerância: +/- " + tolerancia + "%";
@@ -54,36 +71,37 @@ function CalcularResistencia(){
     }, 200);
 }
 function QuatroOuCinco(){
-    let valorInserido = document.getElementById("qtdFaixas").value, quintaFaixa = document.getElementById("Faixa5"), quartaFaixaIlustracao = document.getElementById("faixa4cor"), faixasDiv = document.getElementById("faixasCores");
-    if(valorInserido <= 4){
-        quintaFaixa.disabled = true;
+    Atualizar();
+    let valorInserido = document.getElementById("qtdFaixas").value, faixasDiv = document.getElementById("faixasCores");
+    if(valorInserido == 4){
+        faixasInput[4].disabled = true;
         faixa4cor.style.display = "none";
         faixasDiv.style.right = "10px";
+        resultado.style.transform = "scale(1.1)";
+        setTimeout(() => {
+            resultado.style.transform = "scale(1)";
+        }, 200);
+        faixasInput[4].style.transform = "scale(1.1)";
+        setTimeout(() => {
+            faixasInput[4].style.transform = "scale(1)";
+        }, 200);
     } else {
-        quintaFaixa.disabled = false;
+        faixasInput[4].disabled = false;
         faixa4cor.style.display = "block";
         faixasDiv.style.right = "20px";
+        resultado.style.transform = "scale(1.1)";
+        setTimeout(() => {
+            resultado.style.transform = "scale(1)";
+        }, 200);
+        faixasInput[4].style.transform = "scale(1.1)";
+        setTimeout(() => {
+            faixasInput[4].style.transform = "scale(1)";
+        }, 200);
     }
+    CalcularResistencia()
 }
 function trocaCor(){
-    let faixas = [
-        parseInt(document.getElementById("Faixa1").value),
-        parseInt(document.getElementById("Faixa2").value),
-        parseInt(document.getElementById("Faixa3").value),
-        parseInt(document.getElementById("Faixa4").value),
-        parseInt(document.getElementById("Faixa5").value)],
-    corFaixasFront = ["black", "rgb(80, 40, 0)", "red", "rgb(240, 120, 0)", "yellow", "green", "blue", "rgb(150, 0, 200)", "gray", "white", "rgb(150, 110, 0)", "silver"],
-    faixasCor = [document.getElementById("faixa1cor"),
-        document.getElementById("faixa2cor"),
-        document.getElementById("faixa3cor"),
-        document.getElementById("faixa4cor"),
-        document.getElementById("faixaToleranciaCor")],
-    valorInserido = document.getElementById("qtdFaixas").value,
-    faixasInput = [document.getElementById("Faixa1"),
-        document.getElementById("Faixa2"),
-        document.getElementById("Faixa3"),
-        document.getElementById("Faixa4"),
-        document.getElementById("Faixa5")];
+    Atualizar();
     if(valorInserido == 4){
         for(let i = 0; i < 4; i++){
             if(i != 3){
