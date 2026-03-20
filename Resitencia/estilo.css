@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(129, 129, 129);
     margin: 0px;
 }
 #containerPai{
@@ -24,6 +24,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    border: 2px solid black;
+    width: 700px;
+    height: 190px;
+    margin-bottom: 25px;
 }
 #faixasCores{
     position: absolute;
@@ -38,6 +43,7 @@ body{
     width: 20px;
     height: 110px;
     background-color: black;
+    margin-left: 30px;
     position: relative;
 }
 #faixa2cor{
@@ -91,7 +97,7 @@ body{
 }
 #terminal{
     background-color: silver;
-    width: 650px;
+    width: 680px;
     height: 30px;
     position: absolute;
     border-radius: 10px;
@@ -99,13 +105,13 @@ body{
 #areaDeEntradaDeDados{
     width: 520px;
     height: 300px;
-    background-color: gray;
+    background-color: rgb(35, 35, 35);
     align-content: center;
     justify-items: center;
-    border: 5px outset rgb(186, 186, 186);
+    border: 5px outset rgb(55, 55, 55);
     border-radius: 15px;
     text-align: center;
-    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+    box-shadow: 0px 0px 7px 7px rgb(43, 43, 43);
 }
 #titulo{
     background-color: white;
@@ -123,7 +129,7 @@ body{
     background-color: black;
     color: white;
     transition: transform 0.2s ease-out;
-    border-color: black;
+    border-color: rgb(250, 247, 247);
 }
 .caixaDeEntrada:hover{
     transform: scale(1.1);
