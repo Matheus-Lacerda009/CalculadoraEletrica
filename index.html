@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+    <title>Calculadoras Eletrônica</title>
 </head>
 <body>
-    <button onclick="window.location.href = 'Eletrica/index.html'">Calculadora elétrica</button>
-    <button onclick="window.location.href = 'Mult&Sub/index.html'">Calculadora de múltiplos e submúltiplos</button>
-    <button onclick="window.location.href = 'Resitencia/index.html'">Calculadora de resistência</button>
+    <div id="containerPai">
+        <button onclick="window.location.href = 'Eletrica/index.html'">Calculadora elétrica</button>
+        <button class="botao" onclick="window.location.href = 'Mult&Sub/index.html'">Calculadora de múltiplos e submúltiplos</button>
+        <button class="botao" onclick="window.location.href = 'Resitencia/index.html'">Calculadora de resistência</button>
+        <button class="botao" onclick="window.location.href = 'LeideOhm/index.html'">Calculadora de Lei de Ohm</button>
+        <button class="botao" onclick="window.location.href = 'ResSerieParalelo/index.html'">Calculadora de resistores em série e paralelo</button>
+    </div>
 </body>
 </html>
